@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'LexendDeca';
+    src: url("fonts/LexendDeca-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "BigShoulders";
+    src: url("fonts/BigShouldersDisplay-Bold.ttf");
+    font-weight:700;
+}
+
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan:hsl(184, 100%, 22%);
+    --very-dark-cyan:hsl(179, 100%, 13%);
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --very-light-gray: hsl(0, 0%, 95%)
+}
+html{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+    font-size:15px;
+    vertical-align: middle;
+}
+.container{
+    border-radius: 0.5em;
+    overflow: hidden;
+    color:var(--transparent-white);
+    display:flex;
+    justify-content: center;
+    margin-top:20px;
+    width:60vw;
+    min-width:900px;
+    font-family: 'LexendDeca';
+}
+.wrapper {
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+@media only screen and (max-width:1000px) {
+    .container {
+        height:unset;
+        min-width:unset;
+        width:90vw;
+        max-width:340px;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        height:unset;
+        padding-top:5px;
+    }
+}
+
+h1 {
+    color: var(--very-light-gray);
+    font-family:"BigShoulders";
+    text-transform: uppercase;
+    font-size:40px;
+}
+p {
+    line-height: 25px;
+    margin-bottom:65px;
+}
+
+.learn-button {
+ padding:10px 30px;
+ height:50px;
+ border-radius:  25px;
+ border:none;
+ font-family: 'LexendDeca';
+}
+
+.learn-button:active {
+    background:none;
+    border: 2px solid var(--very-light-gray);
+}
+
+
+.box {
+    padding:45px;
+    min-height:400px;
+}
+
+.orange{
+    background-color: var(--bright-orange);
+    grid-column-start: 1;
+}
+
+.orange > .learn-button {
+    color:var(--bright-orange)
+}
+.orange > .learn-button:active {
+    color:var(--very-light-gray);
+}
+
+
+.dark-cyan {
+    background-color: var(--dark-cyan);
+    grid-column-start: 2;
+}
+
+.dark-cyan > .learn-button {
+    color:var(--dark-cyan)
+}
+.dark-cyan > .learn-button:active {
+    color:var(--very-light-gray)
+}
+
+.very-dark-cyan {
+    background-color: var(--very-dark-cyan);
+    grid-column-start: 3;
+}
+
+.very-dark-cyan > .learn-button {
+    color:var(--very-dark-cyan)
+}
+
+.very-dark-cyan > .learn-button:active {
+    color:var(--very-light-gray)
+}
