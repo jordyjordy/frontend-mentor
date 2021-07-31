@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Frontend Mentor | Calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <script>
+    function changeTheme(e) {
+      document.documentElement.className = e.value
+      console.log(document.documentElement.className)
+    }
+  </script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="titlebar">
+      <div>calc</div>
+      <div class="toggle">
+        <div class='theme'><span>THEME</span></div>
+        <div>
+          <div class='numbers'>
+            <label for="1">1</label>
+            <label for="2">2</label>
+            <label for="3">3</label>
+          </div>
+          <div class="inner-toggle">
+            <span class='toggle-container'>
+              <input type="radio" id="1" name="color" value="one" onclick="changeTheme(this)" checked>
+              <span class="checkmark"></span>
+            </span>
+            <span class='toggle-container'>
+              <input type="radio" id="2" name="color" value="two" onclick="changeTheme(this)">
+              <span class="checkmark"></span>
+            </span>
+            <span class='toggle-container'>
+              <input type="radio" id="3" name="color" value="three" onclick="changeTheme(this)">
+              <span class="checkmark"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="screen">
+      <span>399.981</span>
+    </div>
+    <div class="buttons">
+      <div class="button"><span>7</span></div>
+      <div class="button"><span>8</span></div>
+      <div class="button"><span>9</span></div>
+      <div class="button bluebutton"><span>DEL</span></div>
+      <div class="button"><span>4</span></div>
+      <div class="button"><span>5</span></div>
+      <div class="button"><span>6</span></div>
+      <div class="button"><span>+</span></div>
+      <div class="button"><span>1</span></div>
+      <div class="button"><span>2</span></div>
+      <div class="button"><span>3</span></div>
+      <div class="button"><span>-</span></div>
+      <div class="button"><span>.</span></div>
+      <div class="button"><span>0</span></div>
+      <div class="button"><span>/</span></div>
+      <div class="button"><span>x</span></div>
+      <div class="button bluebutton widebutton"><span>RESET</span></div>
+      <div class="button orangebutton widebutton"><span>=</span></div>
+
+    </div>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Jordy van der Tang</a>.
+  </div>
+</body>
+
+</html>

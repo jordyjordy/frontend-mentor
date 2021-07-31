@@ -1,0 +1,193 @@
+
+
+:root, :root.one {
+ --main-background: hsl(222, 26%, 31%);
+ --keypad-background: hsl(223, 31%, 20%);
+ --screen-background: hsl(224, 36%, 15%);
+
+ --blue-key-background: hsl(225, 21%, 49%);
+ --blue-key-shadow: hsl(224, 28%, 35%);
+
+ --red-key-background: hsl(6, 63%, 50%);
+ --red-key-shadow: hsl(6, 70%, 34%);
+
+ --key-background: hsl(30, 25%, 89%);
+ --key-shadow: hsl(28, 16%, 65%);
+
+--dark-text: hsl(221, 14%, 31%);
+--button-text:hsl(221, 14%, 31%);
+--blue-button-text:  hsl(0, 0%, 100%);
+--orange-button-text: hsl(0, 0%, 100%);
+--screen-text:hsl(221, 14%, 31%);
+--light-text: hsl(0, 0%, 100%);
+--dark-light-text:hsl(0, 0%, 100%);
+
+}
+
+:root.two{
+    --main-background: hsl(0, 0%, 90%);
+    --keypad-background: hsl(0, 5%, 81%);
+    --screen-background:  hsl(0, 0%, 93%);
+   
+    --blue-key-background: hsl(185, 42%, 37%);
+    --blue-key-shadow: hsl(185, 58%, 25%);
+   
+    --red-key-background: hsl(25, 98%, 40%);
+    --red-key-shadow:  hsl(25, 99%, 27%);
+   
+    --key-background:  hsl(45, 7%, 89%);
+    --key-shadow: hsl(35, 11%, 61%);
+   
+    --dark-text: hsl(60, 10%, 19%);
+    --light-text: hsl(0, 0%, 100%);
+    --dark-light-text:hsl(60, 10%, 19%);
+    --button-text:hsl(221, 14%, 31%);
+    --blue-button-text:  hsl(0, 0%, 100%);
+    --orange-button-text: hsl(0, 0%, 100%);
+    --screen-text:hsl(221, 14%, 31%);
+}
+
+:root.three {
+    --main-background: hsl(268, 75%, 9%);
+    --keypad-background: hsl(268, 71%, 12%);
+    --screen-background: hsl(268, 71%, 12%);
+
+    --blue-key-background: hsl(281, 89%, 26%);
+    --blue-key-shadow: hsl(285, 91%, 52%);
+
+    --red-key-background: hsl(176, 100%, 44%);
+    --red-key-shadow: hsl(177, 92%, 70%);
+
+    --key-background: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+
+    --medium-text:hsl(52, 100%, 62%);
+    --dark-text: hsl(221, 14%, 31%);
+    --light-text: hsl(0, 0%, 100%);
+    --dark-light-text: hsl(52, 100%, 62%);
+    --button-text:hsl(52, 100%, 62%);
+    --blue-button-text:  hsl(0, 0%, 100%);
+    --orange-button-text: hsl(198, 20%, 13%);
+    --screen-text:hsl(52, 100%, 62%);
+}
+body{
+    background-color: var(--main-background);
+    font-family: 'Spartan', sans-serif;
+    font-size: 25pt;
+    color: var(--dark--light-text);
+}
+
+.titlebar{
+    color: var(--dark-light-text);
+    display:flex;
+    justify-content: space-between;
+}
+.toggle {
+    color: var(--dark-light-text);
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+}
+input:checked + .checkmark {
+    display:block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--red-key-background);
+}
+
+.theme {
+    padding-right: 10px;
+}
+.inner-toggle{
+    width:80px;
+    background-color: var(--keypad-background);
+    height:20px;
+    border-radius: 23px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3px;
+    padding-left:3px;
+    padding-right:3px;
+}
+.main {
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    max-width:500px;
+
+}
+input[type="radio"] {
+    position:absolute;
+    visibility: hidden;
+}
+
+.buttons {
+    margin:10px 0px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    padding:4%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    background-color: var(--keypad-background);
+    border-radius: .5rem;
+}
+.button {
+    display:table;
+    font-size: 25pt;
+    padding:10px 0px;
+    background: var(--key-background);
+    color: var(--button-text);
+    border-radius: 0.4rem;
+    text-align: center;
+    -webkit-box-shadow: 0px 4px 0px 0px var(--key-shadow); 
+    box-shadow: 0px 4px 0px 0px var(--key-shadow);
+}
+.numbers {
+    margin:0px 8px;
+    padding-left:2px;
+    display:flex;
+    justify-content: space-between;
+}
+.bluebutton {
+    font-size: 15pt;
+    background:var(--blue-key-background);
+    color:var(--blue-button-text);
+    -webkit-box-shadow: 0px 4px 0px 0px var(--blue-key-shadow);
+    box-shadow: 0px 4px 0px 0px var(--blue-key-shadow);
+}
+.orangebutton {
+    font-size: 15pt;
+    background:  var(--red-key-background);
+    color: var(--orange-button-text);
+    -webkit-box-shadow: 0px 4px 0px 0px var(--red-key-shadow);
+    box-shadow: 0px 4px 0px 0px var(--red-key-shadow);
+}
+.widebutton {
+    grid-column: span 2;
+}
+.button:hover {
+    margin-top:4px;
+    margin-bottom:-4px;
+    box-shadow: 0px 0px 0px 0px black;
+}
+
+.button > span {
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.screen {
+    margin:10px 0px;
+    background-color: var(--screen-background);
+    border-radius: .5rem;
+    padding: 2rem 1rem;
+    text-align: right;
+    color: var(--dark-light-text);
+}
