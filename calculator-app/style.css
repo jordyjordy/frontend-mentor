@@ -92,13 +92,17 @@ body{
     align-items: flex-end;
 
 }
-input:checked + .checkmark {
+
+.checkmark {
     display:block;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
+}
+input:checked + .checkmark {
     background-color: var(--red-key-background);
 }
+
 
 .theme {
     padding-right: 10px;
@@ -172,7 +176,7 @@ input[type="radio"] {
 .widebutton {
     grid-column: span 2;
 }
-.button:hover {
+.button:active {
     margin-top:4px;
     margin-bottom:-4px;
     box-shadow: 0px 0px 0px 0px black;
@@ -190,4 +194,8 @@ input[type="radio"] {
     padding: 2rem 1rem;
     text-align: right;
     color: var(--dark-light-text);
+}
+.screen > span {
+    display:block;
+    height: 25pt;
 }

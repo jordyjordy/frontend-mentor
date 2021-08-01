@@ -25,9 +25,81 @@
   </style>
   <script>
     function changeTheme(e) {
-      document.documentElement.className = e.value
-      console.log(document.documentElement.className)
+      document.documentElement.className = e
+      switch (e) {
+        case "one":
+          document.getElementsByName("color")[0].checked = true
+          break;
+        case "two":
+          document.getElementsByName("color")[1].checked = true
+          break;
+        case "three":
+          document.getElementsByName("color")[2].checked = true
+          break;
+        default:
+          console.log('something went wrong')
+      }
     }
+    var value = "0"
+    var backgroundval = 0
+    var operator = ""
+    function addNumber(val) {
+      if (value == "0") {
+        updateValue(val)
+      } else {
+        updateValue(value + val)
+      }
+    }
+    function turnDecimal() {
+      if (value.includes('.'))
+        updateValue(value + ".")
+    }
+
+    function del() {
+      var newstring = value.slice(0, -1)
+      updateValue(newstring)
+    }
+
+    function reset() {
+      backgroundval = 0
+      value = "0"
+      updateValue(value)
+    }
+    function useOperator(val) {
+      if (operator != "") {
+        calculate();
+      }
+      operator = val;
+      backgroundval = parseFloat(value)
+      value = "0"
+    }
+
+    function calculate() {
+      switch (operator) {
+        case "+":
+          updateValue((parseFloat(value) + backgroundval).toString())
+          break;
+        case "-":
+          updateValue((backgroundval - value).toString())
+          break;
+        case "/":
+          updateValue((backgroundval / value).toString())
+          break;
+        case "x":
+          updateValue((backgroundval * value).toString())
+          break;
+        default:
+          console.log('no operator selected, nothing happens')
+      }
+      operator = ""
+      backgroundval = 0
+    }
+
+    function updateValue(val) {
+      document.getElementById('screentext').innerHTML = val
+      value = val
+    }
+
   </script>
 </head>
 
@@ -45,43 +117,43 @@
           </div>
           <div class="inner-toggle">
             <span class='toggle-container'>
-              <input type="radio" id="1" name="color" value="one" onclick="changeTheme(this)" checked>
-              <span class="checkmark"></span>
+              <input type="radio" id="1" name="color" value="one" onclick="changeTheme('one')" checked>
+              <span class="checkmark" onclick="changeTheme('one')"></span>
             </span>
             <span class='toggle-container'>
-              <input type="radio" id="2" name="color" value="two" onclick="changeTheme(this)">
-              <span class="checkmark"></span>
+              <input type="radio" id="2" name="color" value="two" onclick="changeTheme('two')">
+              <span class="checkmark" onclick="changeTheme('two')"></span>
             </span>
             <span class='toggle-container'>
-              <input type="radio" id="3" name="color" value="three" onclick="changeTheme(this)">
-              <span class="checkmark"></span>
+              <input type="radio" id="3" name="color" value="three" onclick="changeTheme('three')">
+              <span class="checkmark" onclick="changeTheme('three')"></span>
             </span>
           </div>
         </div>
       </div>
     </div>
     <div class="screen">
-      <span>399.981</span>
+      <span id='screentext'>0</span>
     </div>
     <div class="buttons">
-      <div class="button"><span>7</span></div>
-      <div class="button"><span>8</span></div>
-      <div class="button"><span>9</span></div>
-      <div class="button bluebutton"><span>DEL</span></div>
-      <div class="button"><span>4</span></div>
-      <div class="button"><span>5</span></div>
-      <div class="button"><span>6</span></div>
-      <div class="button"><span>+</span></div>
-      <div class="button"><span>1</span></div>
-      <div class="button"><span>2</span></div>
-      <div class="button"><span>3</span></div>
-      <div class="button"><span>-</span></div>
-      <div class="button"><span>.</span></div>
-      <div class="button"><span>0</span></div>
-      <div class="button"><span>/</span></div>
-      <div class="button"><span>x</span></div>
-      <div class="button bluebutton widebutton"><span>RESET</span></div>
-      <div class="button orangebutton widebutton"><span>=</span></div>
+      <div class="button" onclick="addNumber('7')"><span>7</span></div>
+      <div class="button" onclick="addNumber('8')"><span>8</span></div>
+      <div class="button" onclick="addNumber('9')"><span>9</span></div>
+      <div class="button bluebutton" onclick="del()"><span>DEL</span></div>
+      <div class="button" onclick="addNumber('4')"><span>4</span></div>
+      <div class="button" onclick="addNumber('5')"><span>5</span></div>
+      <div class="button" onclick="addNumber('6')"><span>6</span></div>
+      <div class="button" onclick="useOperator('+')"><span>+</span></div>
+      <div class="button" onclick="addNumber('1')"><span>1</span></div>
+      <div class="button" onclick="addNumber('2')"><span>2</span></div>
+      <div class="button" onclick="addNumber('3')"><span>3</span></div>
+      <div class="button" onclick="useOperator('-')"><span>-</span></div>
+      <div class="button" onclick="turnDecimal()"><span>.</span></div>
+      <div class="button" onclick="addNumber('0')"><span>0</span></div>
+      <div class="button" onclick="useOperator('/')"><span>/</span></div>
+      <div class="button" onclick="useOperator('x')"><span>x</span></div>
+      <div class="button bluebutton widebutton" onclick="reset()"><span>RESET</span></div>
+      <div class="button orangebutton widebutton" onclick="calculate()"><span>=</span></div>
 
     </div>
   </div>
