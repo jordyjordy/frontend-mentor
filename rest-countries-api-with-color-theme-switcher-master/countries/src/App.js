@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { Header } from './components/Header'
+import { Main } from './components/Main';
+import Detailed from './components/Detailed'
+import React from 'react';
+export default class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  constructor(props) {
+    super(props)
+    this.state = { countries: [{}], id: "" }
+    this.countrySelected = this.countrySelected.bind(this)
+  }
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <Header />
+        </header>
+        <main>
+          <BrowserRouter>
+            <div>
+              <Switch>
+                <Route exact path="/country/:id" render={() => <Detailed countries={this.state.countries} />} />
+                <Route path="/" render={() => <Main countries={this.state.countries} countrySelected={this.countrySelected} />} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </main>
+      </div>
+    );
+  }
+
+  countrySelected(id) {
+    this.setState({ id: id })
+  }
+
+  async componentDidMount() {
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then((response) => response.json())
+      .then(data => {
+        console.log(data)
+        this.setState({ countries: data })
+      }
+      )
+  }
+
 }
-
-export default App;

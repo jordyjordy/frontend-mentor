@@ -1,0 +1,26 @@
+.searchbar{
+    margin:0px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--background-comp-color);
+    padding:20px;
+    border-radius: 0.5em;
+
+}
+::placeholder{
+    color: var(--text-color);
+}
+.searchbar > input {
+    width: 300px;
+    margin-left:20px;
+    background-color: rgba(0,0,0,0);
+    border:none;
+    color: var(--text-color);
+    font-size:15px;
+
+}
+.searchbar > input:focus {
+    outline: 1px solid white;
+    outline-offset: 0.5em;
+}

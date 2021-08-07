@@ -1,0 +1,25 @@
+.country-card {
+    font-weight: 300;
+    background-color: var(--background-comp-color);
+    box-shadow: var(--shadow);
+    border-radius: 0.3rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:300px;
+    margin:20px;
+    text-align: left;
+    
+}
+
+.country-details{
+    padding:20px;
+}
+.flag{
+    background-color: red;
+    height:200px;
+    width: 100%;
+    position: 50% 50%;
+    background-size:cover;
+}

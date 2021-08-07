@@ -1,0 +1,52 @@
+.region-select {
+    position: relative;
+
+    width:240px;
+
+    font-weight: 300;
+
+    margin-left:5px;
+}
+.cancel-button{
+    width:60px;
+    border: none;
+    color: var(--text-color);
+    border-radius:0.5em;
+    background-color: var(--background-comp-color);
+    font-size: 25px;
+}
+.dropdown {
+    position:absolute;
+    height:200px;
+    bottom:-205px;
+    left:0;
+    right:0;
+    background-color: var(--background-comp-color);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+
+.dropdown div{
+    padding:8px 30px;
+    text-align: left;
+    
+}
+.dropdown div:hover{
+    background-color: aqua;
+}
+.region-outter{
+    display:flex;
+    flex-direction: row;
+}
+
+.region-select-top {
+    background-color: var(--background-comp-color);
+    border-radius:0.5em;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    padding:20px 30px;
+}
