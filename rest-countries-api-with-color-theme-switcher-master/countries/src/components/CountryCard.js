@@ -22,12 +22,8 @@ class CountryCard extends React.Component {
         )
     }
     nav() {
-        console.log('yay')
         this.props.history.push({
             pathname: '/country/' + this.props.country.name,
-            // state: {
-            //     name: this.props.country.name
-            // }
         })
     }
 }

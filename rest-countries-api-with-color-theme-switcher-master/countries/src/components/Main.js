@@ -35,10 +35,11 @@ export class Main extends React.Component {
     render() {
         return (
             <div className='main-container'>
+                <div className='search-container'>
+                    <SearchBar onChangeSearch={this.changeSearch} /> <RegionSelect regionChanged={this.changeRegion} />
+                </div>
                 <div className='main'>
-                    <div className='search-container'>
-                        <SearchBar onChangeSearch={this.changeSearch} /> <RegionSelect regionChanged={this.changeRegion} />
-                    </div>
+
                     {this.getCountries()}
                 </div>
             </div >

@@ -15,7 +15,7 @@ export default class SearchBar extends React.Component {
         return (
             <label className='searchbar' htmlFor='countrysearch'>
                 <i className="coffee"></i>
-                <FontAwesomeIcon icon={faSearch} color="white" />
+                <FontAwesomeIcon icon={faSearch} />
                 <input id="countrysearch" type='text' placeholder="Search for a country..." onChange={this.handleChange} />
             </label>
         )

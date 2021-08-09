@@ -1,19 +1,23 @@
 .region-select {
     position: relative;
-
+    margin-bottom:10px;
     width:240px;
-
+    background-color: var(--background-comp-color);
     font-weight: 300;
-
-    margin-left:5px;
+    border-radius: 0.5em;
+    padding:5px 0px;
+    box-shadow: var(--shadow);
 }
 .cancel-button{
-    width:60px;
+    margin-bottom:10px;
+    margin-right:5px;
+    background-color: var(--background-comp-color);
+    width:65px;
     border: none;
     color: var(--text-color);
     border-radius:0.5em;
-    background-color: var(--background-comp-color);
     font-size: 25px;
+    box-shadow: var(--shadow);
 }
 .dropdown {
     position:absolute;
@@ -26,6 +30,7 @@
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
+    box-shadow: var(--shadow);
 }
 
 .dropdown div{
@@ -39,6 +44,7 @@
 .region-outter{
     display:flex;
     flex-direction: row;
+    border-radius:2em;
 }
 
 .region-select-top {
@@ -49,4 +55,14 @@
     justify-content: space-between;
     align-items: center; 
     padding:20px 30px;
+}
+
+@media only screen and (max-width:1150px) {
+    .region-outter{
+        flex-direction: row-reverse;
+    }
+
+    .cancel-button{
+        margin-left:5px; 
+    }
 }

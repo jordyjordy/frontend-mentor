@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { Switch, Route, BrowserRouter } from "react-router-dom"
 import { Header } from './components/Header'
 import { Main } from './components/Main';
 import Detailed from './components/Detailed'
@@ -21,7 +21,9 @@ export default class App extends React.Component {
           <BrowserRouter>
             <div>
               <Switch>
-                <Route exact path="/country/:id" render={() => <Detailed countries={this.state.countries} />} />
+                <Route exact path="/country/:id" render={() => {
+                  return (<Detailed countries={this.state.countries} />)
+                }} />
                 <Route path="/" render={() => <Main countries={this.state.countries} countrySelected={this.countrySelected} />} />
               </Switch>
             </div>

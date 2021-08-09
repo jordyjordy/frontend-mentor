@@ -1,10 +1,20 @@
 .header {
-    
+    min-height:100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 4vw;
+    padding: 0px 100px;
     box-shadow: var(--shadow);
     align-items: center;
     background-color: var(--background-comp-color);
+}
+
+@media only screen and (max-width:1150px){
+    .header {
+        padding-left:20px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    };
 }

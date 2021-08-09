@@ -1,41 +1,64 @@
 
 .detailed{
-    margin: 0 50px;
+    margin: 0px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    margin:50px 50px;
 }
 .detailed-body{
     display:flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     flex-basis: 0;
 }
 
 .detailed-body > div {
-    flex-grow: 1;
-    margin: 100px 50px;
+    flex-grow: 2;
+    margin: 0px 50px;
     width:50%;
 }
 
 
 
 .detailed-flag{
-    width: 100%;
+    height:100%;
+    max-height:600px;
+    width:auto;
+    min-width:100%;
+    max-width: 100;
+    /* width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%; */
+    box-shadow: var(--shadow);
+
 }
 
 .backbutton {
-    margin:0 50px;
+    margin:0px 45px;
     background-color: var(--background-comp-color);
-    padding:5px 20px;
-    width:100px;
+    padding:12px 35px;
+    width:130px;
+    font-weight: 100;
+    color: var(--text-color);
+    border:none;
+    box-shadow: var(--shadow);
+}
+.button-container{
+    display:flex;
+    padding:45px 0px;
+}
+
+.borderbutton {
+    margin:5px 5px;
+    background-color: var(--background-comp-color);
+    padding:10px 10px;
     font-weight: 300;
     color: var(--text-color);
     border:none;
     box-shadow: var(--shadow);
 }
+
 
 .detailed-details{
     margin:50px 0px;
@@ -45,7 +68,6 @@
     align-items: flex-start;
     flex-wrap: wrap;
     height:200px;
-    width:100%;
 }
 .detailed-details > div {
     display:block;
@@ -56,6 +78,35 @@
 .detailed-body {
     text-align: left;
 }
-.detailed-right{
-    padding-top:50px;
+
+
+@media only screen and (max-width:1150px) {
+
+    .detailed{
+        margin:0px 15px;
+        width:calc(100vw - 30px);
+    }
+    .detailed-body{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detailed-body > div {
+        flex-grow: 2;
+        margin: 0px 0px;
+        width:50%;
+    }
+
+    .detailed-flag{
+        max-width: 90vw;
+    }
+    .detailed-body > div {
+        width:100%;
+    }
+    .detailed-right{
+        max-width:calc(100vw - 20px)
+    }
+    .backbutton{
+        margin:0;
+    }
 }
