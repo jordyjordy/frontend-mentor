@@ -38,10 +38,9 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    fetch('https://restcountries.eu/rest/v2/all')
+    fetch('https://restcountries.com/v3.1/all')
       .then((response) => response.json())
       .then(data => {
-        console.log(data)
         this.setState({ countries: data })
       }
       )

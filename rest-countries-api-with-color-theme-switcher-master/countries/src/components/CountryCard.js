@@ -9,9 +9,9 @@ class CountryCard extends React.Component {
     render() {
         return (
             <div className='country-card' onClick={this.nav}>
-                <div className='flag' style={{ backgroundImage: "url(" + this.props.country.flag + ")" }}></div>
+                <div className='flag' style={{ backgroundImage: "url(" + this.props.country.flags.svg + ")" }}></div>
                 <div className='country-details'>
-                    <h3>{this.props.country.name}</h3>
+                    <h3>{this.props.country.name.common}</h3>
                     <p>
                         <b>Population: </b>{this.props.country.population.toLocaleString()}<br />
                         <b>Region: </b>{this.props.country.region}<br />
@@ -23,7 +23,7 @@ class CountryCard extends React.Component {
     }
     nav() {
         this.props.history.push({
-            pathname: '/country/' + this.props.country.name,
+            pathname: '/country/' + this.props.country.name.official,
         })
     }
 }
