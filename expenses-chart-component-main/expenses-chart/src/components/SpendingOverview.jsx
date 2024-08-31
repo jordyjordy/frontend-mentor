@@ -2,7 +2,6 @@ import SpendingGraph from "./SpendingGraph";
 import SpendingTotal from "./SpendingTotal";
 import './SpendingOverview.scss';
 
-
 export default function SpendingOverview() {
     return (
         <div className="spending-overview">

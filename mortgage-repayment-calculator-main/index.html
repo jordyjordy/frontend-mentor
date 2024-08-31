@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet" type="text/css" href="./mobile.css" />
+  <script>
+    function handleSubmit() {
+      const mortgage = document.getElementById('mortgage-amount');
+      const duration = document.getElementById('mortgage-term');
+      const interestRate = document.getElementById('interest-rate');
+      const type = document.querySelector('input[name="mortgage-type"]:checked').value;
+      console.log(type);
+
+      let hasError = false;
+      if (mortgage.value === '') {
+        mortgage.classList.add('error');
+        hasError = true;
+      }
+      if (duration.value === '') {
+        duration.classList.add('error');
+        hasError = true;
+      }
+      if (interestRate.value === '') {
+        interestRate.classList.add('error');
+        hasError = true;
+      }
+      if (hasError) {
+        document.getElementById('empty-results').classList.remove('hidden');
+        document.getElementById('loaded-results').classList.add('hidden');
+        return;
+      }
+      const mortgageNumber = parseFloat(mortgage.value);
+      const durationNumber = parseFloat(duration.value);
+      const interestRateNumber = parseFloat(interestRate.value);
+
+      const interestPercent = interestRateNumber / 100;
+
+
+      const monthly = type === 'repayment'
+        ? getMonthlyCost(interestPercent, mortgageNumber, durationNumber)
+        : mortgageNumber * (Math.pow(1 + interestPercent, 1 / 12) - 1);
+
+      const total = type === 'repayment'
+        ? monthly * 12 * durationNumber
+        : monthly * 12 * durationNumber + mortgageNumber
+
+      document.getElementById('monthly-result').innerHTML = `€${monthly.toLocaleString()}`
+      document.getElementById('total-result').innerHTML = `€${total.toLocaleString()}`
+
+      document.getElementById('empty-results').classList.add('hidden');
+      document.getElementById('loaded-results').classList.remove('hidden');
+    }
+    function getMonthlyCost(interestPercent, mortgageNumber, durationNumber) {
+      const rOverN = interestPercent / 12;
+      return (mortgageNumber * rOverN) / (1 - (1 / (Math.pow(1 + rOverN, 12 * 25))));
+    }
+
+    function clearAll() {
+      const mortgage = document.getElementById('mortgage-amount');
+      const duration = document.getElementById('mortgage-term');
+      const interestRate = document.getElementById('interest-rate');
+      mortgage.value = "";
+      duration.value = "";
+      interestRate.value = "";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="card">
+    <div class="form-wrapper">
+      <div class="header">
+        <h2>
+          Mortgage Calculator
+        </h2>
+        <button class="clear-btn" onclick="clearAll()">Clear All</button>
+
+      </div>
+      <form onsubmit="handleSubmit(); return false;">
+        <fieldset>
+          <label for="mortgage-amount">
+            <span>Mortgage Amount</span>
+            <div class="input-group">
+              <div class="input-info">
+                €
+              </div>
+              <input type="number" id="mortgage-amount" value="300000" />
+            </div>
+          </label>
+        </fieldset>
+        <fieldset class="row">
+          <label for="mortgage-term">
+            <span>Mortgage Term</span>
+            <div class="input-group">
+              <input type="number" id="mortgage-term" value="25" />
+              <div class="input-info">years</div>
+            </div>
+          </label>
+          <label for="interest-rate">
+            <span>Interest Rate</span>
+            <div class="input-group">
+              <input type="number" id="interest-rate" step="0.01" value="5.25" />
+              <div class="input-info">%</div>
+            </div>
+          </label>
+        </fieldset>
+        <fieldset>
+          <span>Mortgage Type</span>
+          <label class="radio-label">
+            <input name="mortgage-type" type="radio" id="repayment" value="repayment" tabindex="0" checked>
+            <span>Repayment</span>
+          </label>
+          <label class="radio-label">
+            <input name="mortgage-type" type="radio" id="interest-only" value="interest-only" tabindex="0">
+            <span>Interest Only</span>
+          </label>
+        </fieldset>
+        <button type="submit" class="calculate-btn">
+          <img src="./assets//images/icon-calculator.svg" />
+          Calculate Repayments
+        </button>
+      </form>
+    </div>
+    <div class="results">
+      <div id="empty-results" class="empty-results">
+        <img src="./assets/images/illustration-empty.svg" alt="Calculator image" />
+        <h2>
+          Results shown here
+        </h2>
+        <p>
+          Complete the form and click “calculate repayments” to see what
+          your monthly repayments would be.
+        </p>
+      </div>
+
+      <div id="loaded-results" class="loaded-results hidden">
+        <h2>
+          Your results
+        </h2>
+        <p>
+          Your results are shown below based on the information you provided.
+          To adjust the results, edit the form and click “calculate repayments” again.
+        </p>
+        <div class="results-box">
+          <h3>
+            Your monthly repayments
+          </h3>
+
+          <div id="monthly-result">
+          </div>
+          <h3>
+            Total you'll repay over the term
+          </h3>
+          <div id="total-result">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Jordy van der Tang</a>.
+  </div>
+</body>
+
+</html>

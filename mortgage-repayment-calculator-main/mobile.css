@@ -1,0 +1,35 @@
+@media screen and (max-width: 800px) {
+  .card {
+    flex-direction: column;
+    border-radius: 0px;
+    min-width: 346px;
+  }
+  .results {
+    border-radius: 0px;
+    padding: 20px;
+  }
+
+  .form-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #monthly-result {
+    min-width: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 40px;
+  }
+
+  .results-box {
+    min-width: 0px;
+    overflow: hidden;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+}
