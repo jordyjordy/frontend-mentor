@@ -88,10 +88,11 @@ p {
   padding: 0px;
 }
 
-.header h2 {
+.header h1 {
   display: inline;
   color: var(--color-slate-900);
   margin: 0;
+  font-size: 1.5em;
 }
 
 .form-wrapper {
