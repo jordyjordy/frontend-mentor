@@ -76,7 +76,7 @@
 </head>
 
 <body>
-  <main class="card" role="main">
+  <main class="card">
     <div class="form-wrapper">
       <div class="header">
         <h1>
@@ -89,28 +89,28 @@
         <fieldset>
           <label for="mortgage-amount">
             <span>Mortgage Amount</span>
-            <div class="input-group">
-              <div class="input-info">
+            <span class="input-group">
+              <span class="input-info">
                 €
-              </div>
+              </span>
               <input type="number" id="mortgage-amount" />
-            </div>
+            </span>
           </label>
         </fieldset>
         <fieldset class="row">
           <label for="mortgage-term">
             <span>Mortgage Term</span>
-            <div class="input-group">
+            <span class="input-group">
               <input type="number" id="mortgage-term" />
-              <div class="input-info">years</div>
-            </div>
+              <span class="input-info">years</span>
+            </span>
           </label>
           <label for="interest-rate">
             <span>Interest Rate</span>
-            <div class="input-group">
+            <span class="input-group">
               <input type="number" id="interest-rate" step="0.01" />
-              <div class="input-info">%</div>
-            </div>
+              <span class="input-info">%</span>
+            </span>
           </label>
         </fieldset>
         <fieldset>
@@ -125,7 +125,7 @@
           </label>
         </fieldset>
         <button type="submit" class="calculate-btn">
-          <img alt="Calculator icon" src="./assetsimages/icon-calculator.svg" />
+          <img alt="Calculator-icon" src="./assets/images/icon-calculator.svg" />
           Calculate Repayments
         </button>
       </form>
